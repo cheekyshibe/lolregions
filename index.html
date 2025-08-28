@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 基础SEO -->
+  <title>LOL 阵营对决助手 | LOL Champion Region Selector</title>
+  <meta name="description"
+    content="英雄联盟阵营对决助手，支持按阵营、英雄类型智能筛选，帮助玩家快速选择英雄组合。LOL Champion Region Selector with intelligent filtering by region and champion type." />
+  <meta name="keywords" content="英雄联盟,LOL,阵营,英雄,筛选器,region,champion,selector,LOL regions,League of Legends champions" />
+  
+  <!-- 中英文SEO -->
+  <meta name="description:zh-CN" content="英雄联盟阵营对决助手，支持按阵营、英雄类型智能筛选，帮助玩家快速选择英雄组合。" />
+  <meta name="description:en"
+    content="LOL Champion Region Selector, intelligent filtering by region and champion type to help players quickly select hero combinations." />
+  <meta name="keywords:zh-CN" content="英雄联盟,LOL,阵营,英雄,筛选器,符文之地,德玛西亚,诺克萨斯,艾欧尼亚,祖安,皮尔特沃夫" />
+  <meta name="keywords:en"
+    content="League of Legends,LOL,champion selector,region filter,Demacia,Noxus,Ionia,Zaun,Piltover,champion types" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="LOL 阵营对决助手 | LOL Champion Region Selector" />
+  <meta property="og:description"
+    content="英雄联盟阵营对决助手，支持按阵营、英雄类型智能筛选。LOL Champion Region Selector with intelligent filtering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lolregions.netlify.app" />
+  <meta property="og:site_name" content="LOL 阵营对决助手" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LOL 阵营对决助手 | LOL Champion Region Selector" />
+  <meta name="twitter:description"
+    content="英雄联盟阵营对决助手，智能筛选英雄组合。LOL Champion Region Selector for intelligent hero filtering." />
+  
+  <!-- 应用相关 -->
+  <meta name="application-name" content="LOL 阵营对决助手" />
+  <meta name="apple-mobile-web-app-title" content="LOL 阵营助手" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  
+  <!-- 语言和区域 -->
+  <meta name="language" content="zh-CN" />
+  <meta name="distribution" content="global" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- 作者和版权 -->
+  <meta name="author" content="四叶草 Official" />
+  <meta name="copyright" content="© 2025 四叶草 Official. All rights reserved." />
+  
+  <!-- 搜索引擎指引 -->
+  <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="bingbot" content="index,follow" />
+  
+  <style>
+    /* 极简全局样式，提升默认可读性 */
+    :root {
+      --bg: #0b0e14;
+      --card: #11151c;
+      --text: #e6e6e6;
+      --muted: #9aa4b2;
+      --accent: #5cc8ff;
+      --accent-2: #94f7c5;
+      --border: #222830;
+    }
+
+    html,
+    body,
+    #app {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+  </style>
+  </head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
