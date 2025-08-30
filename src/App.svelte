@@ -88,6 +88,160 @@
       .catch(() => alert("复制失败"));
   }
 
+  // 配置分享功能
+  interface AppConfig {
+    regions: string[];
+    types: string[];
+    query: string;
+    showTitles: boolean;
+    showAvatars: boolean;
+  }
+
+  // 生成当前配置的编码字符串
+  function generateConfigString(): string {
+    const config: AppConfig = {
+      regions: Array.from(selectedRegions),
+      types: Array.from(selectedTypes),
+      query: query.trim(),
+      showTitles,
+      showAvatars
+    };
+    
+    try {
+      const jsonString = JSON.stringify(config);
+      // 使用 Base64 编码，确保URL友好
+      return btoa(encodeURIComponent(jsonString));
+    } catch (error) {
+      console.error('配置编码失败:', error);
+      return '';
+    }
+  }
+
+  // 解析配置字符串并应用到当前状态
+  function applyConfigString(configString: string): boolean {
+    try {
+      const jsonString = decodeURIComponent(atob(configString));
+      const config: AppConfig = JSON.parse(jsonString);
+      
+      // 验证配置数据的有效性
+      if (!config || typeof config !== 'object') {
+        throw new Error('无效的配置格式');
+      }
+
+      // 应用阵营选择
+      if (Array.isArray(config.regions)) {
+        selectedRegions = new Set(config.regions.filter(id => 
+          regions.some(r => r.id === id)
+        ));
+      }
+
+      // 应用类型选择
+      if (Array.isArray(config.types)) {
+        selectedTypes = new Set(config.types.filter(type => 
+          championTypes.includes(type as any)
+        ));
+      }
+
+      // 应用搜索关键词
+      if (typeof config.query === 'string') {
+        query = config.query;
+      }
+
+      // 应用显示选项
+      if (typeof config.showTitles === 'boolean') {
+        showTitles = config.showTitles;
+      }
+      if (typeof config.showAvatars === 'boolean') {
+        showAvatars = config.showAvatars;
+      }
+
+      return true;
+    } catch (error) {
+      console.error('配置解析失败:', error);
+      return false;
+    }
+  }
+
+  // 复制配置到剪贴板
+  function copyConfig() {
+    const configString = generateConfigString();
+    if (!configString) {
+      alert('配置生成失败');
+      return;
+    }
+
+    navigator.clipboard
+      .writeText(configString)
+      .then(() => alert('配置已复制到剪贴板！\n可以分享给其他用户使用。'))
+      .catch(() => alert('复制失败'));
+  }
+
+  // 从剪贴板粘贴配置
+  async function pasteConfig() {
+    try {
+      const configString = await navigator.clipboard.readText();
+      if (!configString.trim()) {
+        alert('剪贴板为空');
+        return;
+      }
+
+      const success = applyConfigString(configString.trim());
+      if (success) {
+        alert('配置已成功应用！');
+      } else {
+        alert('配置格式无效，请检查配置字符串是否正确');
+      }
+    } catch (error) {
+      alert('无法读取剪贴板内容，请确保已授权剪贴板访问权限');
+    }
+  }
+
+  // 生成分享链接
+  function generateShareLink(): string {
+    const configString = generateConfigString();
+    if (!configString) return '';
+    
+    const url = new URL(window.location.href);
+    url.searchParams.set('config', configString);
+    return url.toString();
+  }
+
+  // 复制分享链接
+  function copyShareLink() {
+    const shareLink = generateShareLink();
+    if (!shareLink) {
+      alert('链接生成失败');
+      return;
+    }
+
+    navigator.clipboard
+      .writeText(shareLink)
+      .then(() => alert('分享链接已复制到剪贴板！\n其他用户打开此链接即可看到相同的配置。'))
+      .catch(() => alert('复制失败'));
+  }
+
+  // 页面加载时检查URL参数
+  function loadConfigFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const configString = urlParams.get('config');
+    
+    if (configString) {
+      const success = applyConfigString(configString);
+      if (success) {
+        // 清除URL参数，避免重复加载
+        const url = new URL(window.location.href);
+        url.searchParams.delete('config');
+        window.history.replaceState({}, '', url.toString());
+      }
+    }
+  }
+
+  // 页面加载时执行
+  import { onMount } from 'svelte';
+  onMount(() => {
+    loadConfigFromURL();
+  });
+
 </script>
 
 <div class="container">
@@ -212,6 +366,9 @@
           {showAvatars ? '隐藏头像' : '显示头像'}
         </button>
         <button class="btn" on:click={exportSelection}>复制当前列表</button>
+        <button class="btn config-btn" on:click={copyConfig}>复制配置</button>
+        <button class="btn config-btn" on:click={pasteConfig}>粘贴配置</button>
+        <button class="btn config-btn" on:click={copyShareLink}>复制分享链接</button>
       </div>
     </div>
 
@@ -454,6 +611,16 @@
   }
   .btn:hover {
     filter: brightness(1.05);
+  }
+  
+  .config-btn {
+    background: linear-gradient(135deg, #50c878, #4a90e2);
+    position: relative;
+  }
+  
+  .config-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
   }
 
   .regions {
