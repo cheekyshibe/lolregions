@@ -136,6 +136,43 @@
   margin-top: 12px;
 }
 
+/* Footer 样式 */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.badges img {
+  height: 20px;
+  transition: opacity 0.2s ease;
+}
+
+.badges a:hover img {
+  opacity: 0.8;
+}
+
+.data-source {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  margin: 8px 0 0 0;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .header-title {
@@ -155,6 +192,49 @@
   .map-btn {
     width: 100%;
     justify-content: center;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .controls .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controls .field.inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .controls .field.inline label {
+    margin-bottom: 6px;
+  }
+  
+  .btns {
+    justify-content: center;
+  }
+  
+  .regions {
+    justify-content: center;
+  }
+  
+  .champions {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .action-buttons {
+    justify-content: center;
+  }
+  
+  .badges {
+    gap: 6px;
+  }
+  
+  .badges img {
+    height: 18px;
   }
 }
 

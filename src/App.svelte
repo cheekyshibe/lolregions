@@ -80,7 +80,7 @@
         >
           <div class="banner-content">
             <span class="banner-icon">🎮</span>
-            <span class="banner-text">全力支持 2025 七夕咸鱼水友群内战</span>
+            <span class="banner-text">灵感来源 2025 七夕咸鱼水友群内战</span>
             <span class="banner-icon">🐟</span>
           </div>
         </a>
@@ -135,11 +135,24 @@
     <ChampionGrid champions={filteredChampions} {showTitles} {showAvatars} />
   </section>
 
-  <footer class="muted">
-    <p>
-      数据来源：<a href="https://yz.lol.qq.com/zh_CN/champions/"
-        >https://yz.lol.qq.com/zh_CN/champions/</a
-      >，如有归属争议可直接在文件中调整。
+  <footer class="footer">
+    <div class="badges">
+      <a href="https://github.com/cheekyshibe/lolregions" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/github/stars/cheekyshibe/lolregions?style=flat-square&logo=github" alt="GitHub Stars" />
+      </a>
+      <a href="https://github.com/cheekyshibe/lolregions/fork" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/github/forks/cheekyshibe/lolregions?style=flat-square&logo=github" alt="GitHub Forks" />
+      </a>
+      <a href="https://github.com/cheekyshibe/lolregions/issues" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/github/issues/cheekyshibe/lolregions?style=flat-square&logo=github" alt="GitHub Issues" />
+      </a>
+      <a href="https://github.com/cheekyshibe/lolregions/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/github/license/cheekyshibe/lolregions?style=flat-square" alt="License" />
+      </a>
+      <img src="https://img.shields.io/badge/Made%20with-Svelte-ff3e00?style=flat-square&logo=svelte" alt="Made with Svelte" />
+    </div>
+    <p class="muted copyright">
+      © 2025 四叶草 · MIT License
     </p>
   </footer>
 </div>
