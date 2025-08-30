@@ -1,5 +1,5 @@
 // 说明：仅保留阵营定义，英雄数据已迁移至 `src/data/champions.ts`
-import type { Region } from './types';
+import type { Region } from '../types';
 
 export const regions: Region[] = [
   { id: 'demacia', name: '德玛西亚' },

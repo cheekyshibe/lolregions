@@ -1,0 +1,138 @@
+/* 说明：可复用组件样式 */
+
+/* 按钮样式 */
+.btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0e14;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.config-btn {
+  background: linear-gradient(135deg, #50c878, #4a90e2);
+  position: relative;
+}
+
+.config-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn.active {
+  background: linear-gradient(135deg, #4a90e2, #50c878);
+}
+
+/* 芯片样式 */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f131a;
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip input {
+  accent-color: var(--accent);
+}
+
+.chip.on {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(84, 168, 255, 0.15) inset;
+  background: #0c1016;
+}
+
+/* 输入框样式 */
+.search {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f131a;
+  color: var(--text);
+  min-width: 220px;
+}
+
+input[type="number"] {
+  width: 120px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f131a;
+  color: var(--text);
+}
+
+/* 英雄卡片样式 */
+.tile {
+  background: #0f131a;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.tile:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(84, 168, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.tile .name {
+  font-weight: 700;
+}
+
+.tile .title {
+  font-size: 0.75rem;
+  color: #3498db;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.tile .sub {
+  font-size: 0.75rem;
+  color: #7f8c8d;
+}
+
+/* 头像样式 */
+.avatar-container {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.5rem auto;
+  position: relative;
+}
+
+.tile .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #e1e8ed;
+}
+
+.avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid #e1e8ed;
+}

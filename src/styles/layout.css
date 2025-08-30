@@ -1,0 +1,174 @@
+/* 说明：布局相关样式 */
+
+/* 头部布局 */
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px 30px;
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.2) 0%, 
+    rgba(118, 75, 162, 0.2) 50%, 
+    rgba(102, 126, 234, 0.1) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+  margin: 20px;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.title-group h1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* 操作按钮布局 */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 控制区域布局 */
+.controls .row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls .row.between {
+  justify-content: space-between;
+}
+
+.controls .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.controls .field.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls .field.inline label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.controls .field.inline input[type="number"] {
+  width: 80px;
+}
+
+.btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 区域选择布局 */
+.regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* 英雄区域布局 */
+.heroes .row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.heroes .row.between {
+  justify-content: space-between;
+}
+
+.heroes .row.gap {
+  gap: 8px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 网格布局 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header-title {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 15px;
+    margin: 10px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .announcement-banner,
+  .map-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    padding: 15px 10px;
+    gap: 15px;
+  }
+  
+  .title-group h1 {
+    font-size: 1.5rem;
+  }
+  
+  .logo {
+    height: 32px;
+  }
+}

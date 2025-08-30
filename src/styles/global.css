@@ -1,0 +1,29 @@
+/* 说明：全局样式和CSS变量 */
+
+:root {
+  --bg: #0b0e14;
+  --card: #11151c;
+  --text: #e6e6e6;
+  --muted: #9aa4b2;
+  --accent: #5cc8ff;
+  --accent-2: #94f7c5;
+  --border: #222830;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* 全局容器样式 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}

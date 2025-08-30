@@ -4,7 +4,7 @@
 // https://universe.leagueoflegends.com/en_US/regions/
 // https://lol.qq.com/data/info-heros.shtml
 
-import type { Champion } from './types';
+import type { Champion } from '../types';
 
 export const champions: Champion[] = [
     // 德玛西亚 Demacia
