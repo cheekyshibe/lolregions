@@ -243,9 +243,13 @@
                 loading="lazy"
                 on:error={(e) => {
                   const img = e.currentTarget;
-                  img.style.display = 'none';
-                  const placeholder = img.parentElement?.querySelector('.avatar-placeholder');
-                  if (placeholder) placeholder.style.display = 'flex';
+                  if (img instanceof HTMLImageElement) {
+                    img.style.display = 'none';
+                    const placeholder = img.parentElement?.querySelector('.avatar-placeholder');
+                    if (placeholder instanceof HTMLElement) {
+                      placeholder.style.display = 'flex';
+                    }
+                  }
                 }}
               />
               <div class="avatar-placeholder" style="display: none;">
